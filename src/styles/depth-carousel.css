@@ -208,11 +208,15 @@
     margin: 0.5rem auto 2rem;
     overflow-x: clip;
   }
+  .depth-carousel__dots {
+    display: none !important;
+  }
   .depth-carousel__controls {
     bottom: -32px;
-  }
-  .depth-carousel__dots {
-    bottom: -26px;
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    gap: 14px;
   }
 }
 
