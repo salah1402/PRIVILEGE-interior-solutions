@@ -10,7 +10,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@scroll-site-pipeline/shared-scroll-engine": "file:../../pipeline/shared-scroll-engine",
     "gsap": "^3.12.5",
     "lenis": "^1.1.0"
   },
