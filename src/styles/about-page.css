@@ -1,0 +1,284 @@
+/**
+ * Privilege Interior Solutions - Dedicated About Page Styles
+ *
+ * Visual System:
+ * - Warm off-white background (--color-bg-base: #f9f8f5)
+ * - Charcoal typography (--color-text-primary: #18191b)
+ * - Cormorant Garamond serif headings
+ * - Clean sans-serif body
+ * - Subtle bronze accents (--color-accent-earth: #b28859)
+ * - Tight, intentional spacing (no huge empty gaps)
+ * - Normal document scroll only (no nested containers or internal scrollbars)
+ */
+
+@import './tokens.css';
+
+/* -------------------------------------------------------------------------
+ * Page Shell - Normal Page Flow Only
+ * ------------------------------------------------------------------------- */
+.about-page {
+  position: relative;
+  width: 100%;
+  background-color: var(--color-bg-base);
+  color: var(--color-text-primary);
+  box-sizing: border-box;
+  padding-top: var(--header-height);
+  overflow: visible; /* Standard document scroll */
+}
+
+.about-page__container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--layout-gutter);
+  box-sizing: border-box;
+}
+
+/* Kicker label */
+.about-page__kicker {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--color-accent-earth);
+  margin-bottom: 0.75rem;
+}
+
+/* -------------------------------------------------------------------------
+ * 1. INTRO
+ * ------------------------------------------------------------------------- */
+.about-page__intro {
+  width: 100%;
+  padding: clamp(1.75rem, 3.5vw, 2.75rem) 0 clamp(1.5rem, 2.5vw, 2rem);
+  border-bottom: 1px solid var(--color-border-subtle);
+  background-color: var(--color-bg-base);
+  box-sizing: border-box;
+}
+
+.about-page__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.about-page__badge-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--color-accent-earth);
+  flex-shrink: 0;
+}
+
+.about-page__badge-text {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--color-accent-earth);
+}
+
+.about-page__intro-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.65rem, 4.9vw, 3.95rem);
+  font-weight: 400;
+  line-height: 1.12;
+  color: var(--color-text-primary);
+  letter-spacing: var(--tracking-tight);
+  margin: 0 0 0.65rem 0;
+}
+
+.about-page__intro-sub {
+  font-family: var(--font-sans);
+  font-size: clamp(0.9rem, 1.05vw, 0.9875rem);
+  line-height: 1.55;
+  color: var(--color-text-secondary);
+  max-width: 660px;
+  margin: 0;
+}
+
+/* -------------------------------------------------------------------------
+ * 2. ABOUT (Two-Column Layout)
+ * ------------------------------------------------------------------------- */
+.about-page__story {
+  width: 100%;
+  padding-top: clamp(2rem, 3vw, 2.75rem);
+  padding-bottom: clamp(1.5rem, 2.2vw, 2.25rem);
+  border-bottom: 1px solid var(--color-border-subtle);
+  box-sizing: border-box;
+}
+
+.about-page__story-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: clamp(2rem, 3.5vw, 3.5rem);
+  align-items: center;
+}
+
+.about-page__story-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.about-page__story-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.75rem, 2.8vw, 2.35rem);
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--color-text-primary);
+  margin: 0 0 0.875rem 0;
+  letter-spacing: var(--tracking-tight);
+}
+
+.about-page__story-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.about-page__story-body p {
+  font-family: var(--font-sans);
+  font-size: clamp(0.875rem, 0.95vw, 0.9375rem);
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+/* Right Visual Frame */
+.about-page__story-media {
+  width: 100%;
+}
+
+.about-page__image-frame {
+  position: relative;
+  width: 100%;
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.about-page__image {
+  width: 100%;
+  height: clamp(240px, 24vw, 310px);
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* -------------------------------------------------------------------------
+ * 3. CTA
+ * ------------------------------------------------------------------------- */
+.about-page__cta {
+  width: 100%;
+  padding-top: clamp(1.5rem, 2.2vw, 2.25rem);
+  padding-bottom: clamp(2rem, 3vw, 2.75rem);
+  box-sizing: border-box;
+  background-color: var(--color-bg-base);
+}
+
+.about-page__cta-box {
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 4px;
+  padding: clamp(1.5rem, 2.5vw, 2.25rem) clamp(1.5rem, 2.5vw, 2.5rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  box-sizing: border-box;
+}
+
+.about-page__cta-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.65rem, 2.5vw, 2.15rem);
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--color-text-primary);
+  margin: 0;
+  letter-spacing: var(--tracking-tight);
+}
+
+.about-page__cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  background-color: var(--color-accent-earth);
+  color: #ffffff;
+  padding: 0.75rem 1.75rem;
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: var(--radius-pill);
+  white-space: nowrap;
+  transition: background-color var(--duration-fast) ease;
+}
+
+.about-page__cta-btn:hover {
+  background-color: #9d7549;
+}
+
+/* -------------------------------------------------------------------------
+ * Responsive Breakpoints
+ * ------------------------------------------------------------------------- */
+@media (max-width: 860px) {
+  .about-page__story-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .about-page__image {
+    height: 280px;
+  }
+
+  .about-page__cta-box {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2rem 1.5rem;
+    gap: 1.25rem;
+  }
+
+  .about-page__cta-btn {
+    width: 100%;
+    justify-content: center;
+    min-height: 44px;
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 600px) {
+  .about-page {
+    padding-top: 4rem;
+  }
+  .about-page__intro {
+    padding: 1.75rem 0 1.5rem;
+  }
+  .about-page__intro-title {
+    font-size: clamp(2rem, 8.5vw, 2.5rem);
+    word-break: break-word;
+  }
+  .about-page__story {
+    padding-top: 1.75rem;
+    padding-bottom: 1.5rem;
+  }
+  .about-page__story-title {
+    font-size: clamp(1.6rem, 7vw, 1.95rem);
+  }
+  .about-page__image {
+    height: 220px;
+  }
+  .about-page__cta {
+    padding-top: 1.25rem;
+    padding-bottom: 2rem;
+  }
+  .about-page__cta-box {
+    padding: 1.5rem 1.15rem;
+  }
+}
+

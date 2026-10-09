@@ -1,0 +1,18 @@
+node_modules
+dist
+.DS_Store
+
+# Environment & credentials
+.env
+.env.*
+*.local
+
+# Diagnostic test scripts & temp test files
+*.cjs
+verify_*.js
+diagnose_*.js
+*.log
+
+# Root-level test/audit screenshot captures (authentic assets remain in public/assets/)
+/*.png
+

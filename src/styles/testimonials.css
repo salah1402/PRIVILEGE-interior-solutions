@@ -1,0 +1,181 @@
+/**
+ * Privilege Interior Solutions - Section 05: What Our Clients Said
+ * 
+ * Clean, compact 3-panel format:
+ * - Centered section heading
+ * - 3 equal testimonial panels in one row on desktop
+ * - Small quote-mark icon at the top
+ * - Testimonial centered in the panel
+ * - Client name underneath
+ * - Thin Privilege bronze accent along the bottom
+ * - Warm ivory canvas, clean white/warm-stone panels, charcoal serif quotes
+ * - No gradients, no shadows, no glass effects, no oversized cards
+ */
+
+.testimonials-editorial {
+  position: relative;
+  width: 100%;
+  background-color: var(--color-bg-base);
+  color: var(--color-text-primary);
+  padding: clamp(3.5rem, 5.5vw, 5rem) 0;
+  border-bottom: 1px solid var(--color-border-subtle);
+  box-sizing: border-box;
+}
+
+.testimonials__container {
+  max-width: var(--layout-max-width);
+  margin: 0 auto;
+  padding: 0 var(--layout-gutter);
+  box-sizing: border-box;
+}
+
+/* Centered Header */
+.testimonials__header {
+  text-align: center;
+  margin-bottom: clamp(2rem, 3.5vw, 2.75rem);
+}
+
+.testimonials__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--color-accent-earth);
+  margin-bottom: 0.75rem;
+}
+
+.testimonials__eyebrow-bullet {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--color-accent-earth);
+  flex-shrink: 0;
+}
+
+.testimonials__title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.65rem, 4.9vw, 3.95rem);
+  font-weight: 400;
+  line-height: 1.12;
+  color: var(--color-text-primary);
+  margin: 0;
+  letter-spacing: var(--tracking-tight);
+}
+
+/* 3 Equal Panels Grid */
+.testimonials__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1.25rem, 2vw, 1.75rem);
+  align-items: stretch;
+  box-sizing: border-box;
+}
+
+/* Testimonial Card */
+.testimonial-card {
+  position: relative;
+  background-color: #ffffff;
+  border: 1px solid var(--color-border-subtle);
+  border-bottom: 2px solid var(--color-accent-earth);
+  border-radius: 4px;
+  padding: clamp(2rem, 3vw, 2.75rem) clamp(1.5rem, 2vw, 2rem) clamp(1.75rem, 2.5vw, 2.25rem);
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-sizing: border-box;
+  box-shadow: none;
+  transition: border-color 0.2s ease;
+}
+
+.testimonial-card:hover {
+  border-top-color: var(--color-border-medium);
+  border-left-color: var(--color-border-medium);
+  border-right-color: var(--color-border-medium);
+}
+
+/* Quote Icon at Top */
+.testimonial-card__icon-wrapper {
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-accent-earth);
+  opacity: 0.75;
+  line-height: 1;
+}
+
+.testimonial-card__quote-icon {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+/* Centered Quote Statement */
+.testimonial-card__quote {
+  font-family: var(--font-serif);
+  font-size: clamp(1.0625rem, 1.2vw, 1.2rem);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--color-text-primary);
+  margin: 0 0 1.5rem 0;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: var(--tracking-normal);
+}
+
+/* Client Name */
+.testimonial-card__author {
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  line-height: 1.2;
+}
+
+/* Responsive: Clean stack on tablets and mobile */
+@media (max-width: 900px) {
+  .testimonials__grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    max-width: 540px;
+    margin: 0 auto;
+  }
+
+  .testimonial-card {
+    padding: 1.875rem 1.5rem;
+  }
+
+  .testimonial-card__quote {
+    font-size: 1.0625rem;
+    margin-bottom: 1.25rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .testimonials-editorial {
+    padding: 3.5rem 0;
+  }
+  .testimonials__header {
+    margin-bottom: 1.75rem;
+  }
+  .testimonials__title {
+    font-size: clamp(2rem, 8.5vw, 2.5rem);
+    word-break: break-word;
+  }
+  .testimonial-card {
+    padding: 1.5rem 1.25rem;
+  }
+}
+

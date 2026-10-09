@@ -1,0 +1,144 @@
+/**
+ * Privilege Interior Solutions - Global Base Styles & Design System
+ * Clean, warm, architectural canvas foundation.
+ */
+
+@import './tokens.css';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: var(--font-sans);
+  background-color: var(--color-bg-base);
+  color: var(--color-text-primary);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+  overflow-x: clip;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  background-color: var(--color-bg-base);
+  color: var(--color-text-primary);
+  line-height: var(--leading-normal);
+  overflow-x: clip;
+}
+
+#site-root {
+  margin: 0;
+  padding: 0;
+  display: block;
+  width: 100%;
+  overflow-x: clip;
+  background-color: var(--color-bg-base);
+}
+
+/* Base Typographic Hierarchy */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+p {
+  font-family: var(--font-sans);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-relaxed);
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Global Buttons & Links (Restrained architectural editorial design) */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  padding: 0.8rem 1.6rem;
+  min-height: 44px;
+  border-radius: var(--radius-sm);
+  transition: all var(--duration-fast) var(--ease-editorial);
+  cursor: pointer;
+  position: relative;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+.btn-primary {
+  background-color: var(--color-text-primary);
+  color: var(--color-text-inverse);
+  border: 1px solid var(--color-text-primary);
+}
+
+.btn-primary:hover {
+  background-color: #2e3035;
+  border-color: #2e3035;
+  color: var(--color-text-inverse);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-border-medium);
+}
+
+.btn-secondary:hover {
+  border-color: var(--color-text-primary);
+  background-color: rgba(24, 25, 27, 0.04);
+  transform: translateY(-1px);
+}
+
+.btn-arrow {
+  display: inline-block;
+  transition: transform var(--duration-fast) var(--ease-editorial);
+}
+
+.btn:hover .btn-arrow {
+  transform: translateX(3px);
+}
+
+/* Focus visible */
+:focus-visible {
+  outline: 2px solid var(--color-text-primary);
+  outline-offset: 3px;
+}
+
+/* Accessibility: Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+    transform: none !important;
+  }
+}

@@ -1,0 +1,396 @@
+/**
+ * Privilege Interior Solutions - Dedicated Services Page Styles
+ *
+ * Visual System:
+ * - Warm off-white background (--color-bg-base: #f9f8f5)
+ * - Charcoal typography (--color-text-primary: #18191b)
+ * - Cormorant Garamond serif headings
+ * - Clean sans-serif body
+ * - Subtle bronze accents (--color-accent-earth: #b28859)
+ * - Compact vertical spacing (no giant empty gaps)
+ * - Normal document scroll only (no nested containers or internal scrollbars)
+ */
+
+@import './tokens.css';
+
+/* -------------------------------------------------------------------------
+ * Page Shell - Normal Page Flow Only
+ * ------------------------------------------------------------------------- */
+.services-page {
+  position: relative;
+  width: 100%;
+  background-color: var(--color-bg-base);
+  color: var(--color-text-primary);
+  box-sizing: border-box;
+  padding-top: var(--header-height);
+  overflow: visible; /* Standard document scroll */
+}
+
+.services-page__container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--layout-gutter);
+  box-sizing: border-box;
+}
+
+/* Kicker label */
+.services-page__kicker {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--color-accent-earth);
+  margin-bottom: 0.75rem;
+}
+
+/* -------------------------------------------------------------------------
+ * 1. INTRO
+ * ------------------------------------------------------------------------- */
+.services-page__intro {
+  width: 100%;
+  padding: clamp(1.75rem, 3.5vw, 2.75rem) 0 clamp(1.5rem, 2.5vw, 2rem);
+  border-bottom: 1px solid var(--color-border-subtle);
+  background-color: var(--color-bg-base);
+  box-sizing: border-box;
+}
+
+.services-page__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.services-page__badge-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--color-accent-earth);
+  flex-shrink: 0;
+}
+
+.services-page__badge-text {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--color-accent-earth);
+}
+
+.services-page__intro-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.65rem, 4.9vw, 3.95rem);
+  font-weight: 400;
+  line-height: 1.12;
+  color: var(--color-text-primary);
+  letter-spacing: var(--tracking-tight);
+  margin: 0 0 0.65rem 0;
+}
+
+.services-page__intro-sub {
+  font-family: var(--font-sans);
+  font-size: clamp(0.9rem, 1.05vw, 0.9875rem);
+  line-height: 1.55;
+  color: var(--color-text-secondary);
+  max-width: 680px;
+  margin: 0 0 1.5rem 0;
+}
+
+.services-page__intro-action {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Common Button Styles */
+.services-page__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  background-color: var(--color-accent-earth);
+  color: #ffffff;
+  padding: 0.75rem 1.75rem;
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: var(--radius-pill);
+  white-space: nowrap;
+  transition: background-color var(--duration-fast) ease;
+}
+
+.services-page__btn:hover {
+  background-color: #9d7549;
+}
+
+.services-page__btn-arrow {
+  transition: transform var(--duration-fast) ease;
+}
+
+.services-page__btn:hover .services-page__btn-arrow {
+  transform: translateX(3px);
+}
+
+/* -------------------------------------------------------------------------
+ * 2. OUR APPROACH
+ * ------------------------------------------------------------------------- */
+.services-page__approach {
+  width: 100%;
+  padding: clamp(2.25rem, 3.5vw, 3.25rem) 0;
+  border-bottom: 1px solid var(--color-border-subtle);
+  box-sizing: border-box;
+}
+
+.services-page__section-header {
+  margin-bottom: clamp(1.25rem, 2vw, 1.75rem);
+}
+
+.services-page__section-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.75rem, 2.8vw, 2.35rem);
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--color-text-primary);
+  margin: 0;
+  letter-spacing: var(--tracking-tight);
+}
+
+.services-page__approach-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1rem, 1.75vw, 1.5rem);
+  align-items: stretch;
+}
+
+.services-page__approach-card {
+  background-color: #ffffff;
+  border: 1px solid var(--color-border-subtle);
+  border-top: 2px solid var(--color-accent-earth);
+  border-radius: 4px;
+  padding: clamp(1.25rem, 1.8vw, 1.65rem) clamp(1rem, 1.5vw, 1.35rem);
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.services-page__step-num {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: var(--tracking-widest);
+  color: var(--color-accent-earth);
+  margin-bottom: 0.5rem;
+}
+
+.services-page__step-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.15rem, 1.3vw, 1.35rem);
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--color-text-primary);
+  margin: 0 0 0.5rem 0;
+  letter-spacing: var(--tracking-tight);
+}
+
+.services-page__step-desc {
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  line-height: 1.55;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+/* -------------------------------------------------------------------------
+ * 3. SERVICES (7 Verified Services + Glass AMC)
+ * ------------------------------------------------------------------------- */
+.services-page__services {
+  width: 100%;
+  padding-top: clamp(2rem, 3vw, 2.75rem);
+  padding-bottom: clamp(1.5rem, 2.2vw, 2.25rem);
+  border-bottom: 1px solid var(--color-border-subtle);
+  box-sizing: border-box;
+}
+
+.services-page__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(0.875rem, 1.5vw, 1.25rem);
+  align-items: stretch;
+}
+
+.services-page__card {
+  background-color: #ffffff;
+  border: 1px solid var(--color-border-subtle);
+  border-bottom: 2px solid var(--color-accent-earth);
+  border-radius: 4px;
+  padding: clamp(1.25rem, 1.5vw, 1.5rem) clamp(1rem, 1.25vw, 1.25rem);
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.services-page__card--highlight {
+  background-color: #faf9f6;
+  border-color: rgba(178, 136, 89, 0.35);
+  border-bottom: 2px solid var(--color-accent-earth);
+}
+
+.services-page__card-tag {
+  font-family: var(--font-sans);
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--color-accent-earth);
+  margin-bottom: 0.25rem;
+}
+
+.services-page__card-num {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: var(--tracking-widest);
+  color: var(--color-accent-earth);
+  margin-bottom: 0.65rem;
+}
+
+.services-page__card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.services-page__card-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.05rem, 1.15vw, 1.2rem);
+  font-weight: 500;
+  line-height: 1.25;
+  color: var(--color-text-primary);
+  margin: 0 0 0.35rem 0;
+}
+
+.services-page__card-desc {
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+/* -------------------------------------------------------------------------
+ * 4. CTA
+ * ------------------------------------------------------------------------- */
+.services-page__cta {
+  width: 100%;
+  padding-top: clamp(1.5rem, 2.2vw, 2.25rem);
+  padding-bottom: clamp(2rem, 3vw, 2.75rem);
+  box-sizing: border-box;
+  background-color: var(--color-bg-base);
+}
+
+.services-page__cta-box {
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 4px;
+  padding: clamp(1.5rem, 2.5vw, 2.25rem) clamp(1.5rem, 2.5vw, 2.5rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  box-sizing: border-box;
+}
+
+.services-page__cta-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.65rem, 2.5vw, 2.15rem);
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--color-text-primary);
+  margin: 0;
+  letter-spacing: var(--tracking-tight);
+}
+
+/* -------------------------------------------------------------------------
+ * Responsive Breakpoints
+ * ------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .services-page__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+}
+
+@media (max-width: 860px) {
+  .services-page__approach-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .services-page__cta-box {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2rem 1.5rem;
+    gap: 1.25rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .services-page {
+    padding-top: 4rem;
+  }
+
+  .services-page__intro {
+    padding: 1.75rem 0 1.5rem;
+  }
+
+  .services-page__intro-title {
+    font-size: clamp(2rem, 8.5vw, 2.5rem);
+    word-break: break-word;
+  }
+
+  .services-page__section-title {
+    font-size: clamp(1.8rem, 7.5vw, 2.2rem);
+    word-break: break-word;
+  }
+
+  .services-page__approach {
+    padding-top: 1.75rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .services-page__grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .services-page__intro-action {
+    width: 100%;
+  }
+
+  .services-page__btn {
+    width: 100%;
+    justify-content: center;
+    min-height: 44px;
+    box-sizing: border-box;
+  }
+
+  .services-page__card {
+    padding: 1.35rem 1.15rem;
+  }
+
+  .services-page__cta {
+    padding-top: 1.25rem;
+    padding-bottom: 2rem;
+  }
+
+  .services-page__cta-box {
+    padding: 1.5rem 1.15rem;
+  }
+}
+

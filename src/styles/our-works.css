@@ -1,0 +1,398 @@
+/**
+ * Privilege Interior Solutions - Section 2: Our Works Styles
+ *
+ * Refined continuous editorial showcase:
+ * - Single pinned editorial stage occupying viewport while scrolling.
+ * - Fluid photographic morphing transitions with smoothstep easing (no hard horizontal boundaries).
+ * - Restrained typography with strong contrast against varied photography.
+ * - Minimal, quiet bottom UI (hairline progress indicator).
+ * - Fully responsive on desktop, tablet, and mobile.
+ */
+
+@import './tokens.css';
+
+/* -------------------------------------------------------------------------
+ * Section Stage Container
+ * Height provides the continuous scroll runway for 4 distinct chapters
+ * ------------------------------------------------------------------------- */
+.our-works-section {
+  position: relative;
+  width: 100%;
+  height: 380vh;
+  background-color: var(--color-bg-base);
+  color: var(--color-text-primary);
+  border-bottom: 1px solid var(--color-border-subtle);
+  box-sizing: border-box;
+}
+
+.our-works-stage-container {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: calc(var(--header-height, 72px) + 0.5rem) clamp(1rem, 3.2vw, 2.5rem) 1.25rem;
+}
+
+.our-works-stage {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: min(1680px, calc(100vw - 2.5rem));
+  height: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* -------------------------------------------------------------------------
+ * Stage Header: Rubric, Subtitle & Project Pagination
+ * ------------------------------------------------------------------------- */
+.our-works-stage__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 0.65rem;
+  flex-shrink: 0;
+}
+
+.our-works-stage__rubric {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.our-works-stage__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-accent-earth);
+  flex-shrink: 0;
+}
+
+.our-works-stage__badge {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.our-works-stage__sep {
+  color: var(--color-border-medium);
+  font-size: 0.75rem;
+}
+
+.our-works-stage__lead {
+  font-family: var(--font-serif);
+  font-size: clamp(1rem, 1.35vw, 1.2rem);
+  font-weight: 400;
+  color: var(--color-text-primary);
+  letter-spacing: -0.01em;
+}
+
+.our-works-stage__counter {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.25rem;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--color-text-primary);
+}
+
+.our-works-stage__counter-current {
+  color: var(--color-accent-earth);
+  font-size: 1.05rem;
+  min-width: 1.4rem;
+  text-align: right;
+  display: inline-block;
+  transition: transform 200ms ease;
+}
+
+.our-works-stage__counter-slash,
+.our-works-stage__counter-total {
+  color: var(--color-text-muted);
+  font-size: 0.75rem;
+}
+
+/* -------------------------------------------------------------------------
+ * Pinned Editorial Canvas (Unified Transformation Stage)
+ * ------------------------------------------------------------------------- */
+.our-works-canvas {
+  position: relative;
+  width: 100%;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  border-radius: 2px;
+  background-color: var(--color-bg-base);
+  border: 1px solid var(--color-border-subtle);
+  box-shadow: 0 24px 60px rgba(24, 25, 27, 0.08);
+}
+
+/* -------------------------------------------------------------------------
+ * Project Layers (Continuous Transformation Stack)
+ * ------------------------------------------------------------------------- */
+.our-works-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+  will-change: opacity;
+  transition: opacity 120ms linear;
+}
+
+.our-works-layer[data-index="1"] { z-index: 1; }
+.our-works-layer[data-index="2"] { z-index: 2; }
+.our-works-layer[data-index="3"] { z-index: 3; }
+.our-works-layer[data-index="4"] { z-index: 4; }
+
+.our-works-layer__media {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.our-works-layer__img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+  transform-origin: center center;
+  transform: translate3d(0, 0, 0) scale(1.05);
+  will-change: transform;
+}
+
+.our-works-layer__tint {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(16, 17, 20, 0.04);
+  pointer-events: none;
+}
+
+/* -------------------------------------------------------------------------
+ * Deliberate Edge Placards (Tag, Title, Explore More)
+ * ------------------------------------------------------------------------- */
+.our-works-layer__edge {
+  position: absolute;
+  z-index: 10;
+  pointer-events: none;
+  box-sizing: border-box;
+  will-change: opacity, transform;
+}
+
+.our-works-layer__edge--top-left {
+  top: clamp(1.2rem, 2.5vw, 2.25rem);
+  left: clamp(1.2rem, 2.5vw, 2.25rem);
+}
+
+.our-works-layer__edge--top-right {
+  top: clamp(1.2rem, 2.5vw, 2.25rem);
+  right: clamp(1.2rem, 2.5vw, 2.25rem);
+}
+
+.our-works-layer__edge--bottom-left {
+  bottom: clamp(1.2rem, 2.5vw, 2.25rem);
+  left: clamp(1.2rem, 2.5vw, 2.25rem);
+  max-width: min(520px, calc(100% - 3rem));
+}
+
+.our-works-layer__edge--bottom-right {
+  bottom: clamp(1.2rem, 2.5vw, 2.25rem);
+  right: clamp(1.2rem, 2.5vw, 2.25rem);
+  max-width: min(520px, calc(100% - 3rem));
+}
+
+/* Category: small, restrained */
+.our-works-layer__tag {
+  display: inline-block;
+  background-color: rgba(16, 17, 20, 0.76);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.35rem 0.8rem;
+  border-radius: 2px;
+  font-family: var(--font-sans);
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-accent-earth);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22);
+}
+
+/* Project title: clear and elegant */
+.our-works-layer__title {
+  margin: 0;
+  background-color: rgba(16, 17, 20, 0.78);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: clamp(0.6rem, 1.2vw, 0.9rem) clamp(1rem, 1.8vw, 1.5rem);
+  border-radius: 2px;
+  font-family: var(--font-serif);
+  font-size: clamp(1.55rem, 2.7vw, 2.45rem);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: var(--tracking-tight);
+  color: #ffffff;
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.28);
+}
+
+/* EXPLORE MORE: visible but understated */
+.our-works-layer__action {
+  pointer-events: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  background-color: rgba(16, 17, 20, 0.76);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 0.6rem 1.15rem;
+  border-radius: 2px;
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.22);
+  transition: all 250ms ease;
+  outline: none;
+}
+
+.our-works-layer__action:hover {
+  background-color: rgba(16, 17, 20, 0.92);
+  border-color: var(--color-accent-earth);
+  color: var(--color-accent-earth);
+}
+
+.our-works-layer__action:focus-visible {
+  outline: 2px solid var(--color-accent-earth);
+  outline-offset: 4px;
+}
+
+.our-works-layer__action-arrow {
+  display: inline-block;
+  font-size: 0.8125rem;
+  transition: transform 250ms ease;
+}
+
+.our-works-layer__action:hover .our-works-layer__action-arrow {
+  transform: translateX(4px);
+}
+
+/* -------------------------------------------------------------------------
+ * Minimal Stage Hairline Progress Track (Clean, Uncluttered)
+ * ------------------------------------------------------------------------- */
+.our-works-stage__footer {
+  margin-top: 0.5rem;
+  flex-shrink: 0;
+  width: 100%;
+}
+
+.our-works-stage__progress-track {
+  width: 100%;
+  height: 1.5px;
+  background-color: var(--color-border-subtle);
+  border-radius: 1px;
+  overflow: hidden;
+}
+
+.our-works-stage__progress-fill {
+  height: 100%;
+  width: 0%;
+  background-color: var(--color-accent-earth);
+  transition: width 60ms linear;
+}
+
+/* -------------------------------------------------------------------------
+ * Responsive Adaptations (Tablet & Mobile)
+ * ------------------------------------------------------------------------- */
+@media (max-width: 991px) {
+  .our-works-stage-container {
+    padding-top: calc(var(--header-height, 68px) + 0.4rem);
+    padding-left: 0.85rem;
+    padding-right: 0.85rem;
+  }
+
+  .our-works-stage__lead {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .our-works-section {
+    height: 340vh;
+  }
+
+  .our-works-stage-container {
+    padding-top: calc(var(--header-height, 60px) + 0.35rem);
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+
+  .our-works-stage__header {
+    margin-bottom: 0.45rem;
+  }
+
+  .our-works-layer__edge--top-left {
+    top: 0.75rem;
+    left: 0.75rem;
+  }
+
+  .our-works-layer__edge--top-right {
+    top: 0.75rem;
+    right: 0.75rem;
+  }
+
+  .our-works-layer__edge--bottom-left {
+    bottom: 0.75rem;
+    left: 0.75rem;
+    max-width: calc(100% - 1.5rem);
+  }
+
+  .our-works-layer__edge--bottom-right {
+    bottom: 0.75rem;
+    right: 0.75rem;
+    max-width: calc(100% - 1.5rem);
+  }
+
+  .our-works-layer__tag {
+    padding: 0.3rem 0.65rem;
+    font-size: 0.5625rem;
+  }
+
+  .our-works-layer__title {
+    padding: 0.5rem 0.85rem;
+    font-size: 1.15rem;
+  }
+
+  .our-works-layer__action {
+    padding: 0.5rem 0.85rem;
+    font-size: 0.625rem;
+  }
+}

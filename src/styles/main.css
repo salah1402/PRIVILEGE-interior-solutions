@@ -1,0 +1,18 @@
+/**
+ * Privilege Interior Solutions - Master Stylesheet
+ * Integrates Design System tokens, global typography & base styles, header, depth-carousel, architectural hero, and section modules.
+ */
+
+@import './tokens.css';
+@import './base.css';
+@import './header.css';
+@import './depth-carousel.css';
+@import './hero.css';
+@import './our-works.css';
+@import './credibility.css';
+@import './projects.css';
+@import './testimonials.css';
+@import './book-call.css';
+@import './about-page.css';
+@import './services-page.css';
+@import './skeleton.css';

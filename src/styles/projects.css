@@ -1,0 +1,492 @@
+/**
+ * Privilege Interior Solutions - Projects Page Styles
+ *
+ * Immersive, project-focused architectural portfolio experience.
+ * Inspired by the Lumenis visual and compositional benchmark:
+ * - Natural warm paper canvas (--color-bg-base: #f9f8f5)
+ * - Large viewport-scale project panels
+ * - Minimal UI surrounding photography
+ * - Restrained typography and high-contrast charcoal text
+ * - Subtle editorial scroll & entrance transitions (no gimmicky 3D or cursor trails)
+ * - Clean mobile & tablet responsive stacking
+ */
+
+@import './tokens.css';
+
+/* -------------------------------------------------------------------------
+ * Page Container & Opening
+ * ------------------------------------------------------------------------- */
+.projects-page {
+  position: relative;
+  width: 100%;
+  background-color: var(--color-bg-base);
+  color: var(--color-text-primary);
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding-top: var(--header-height);
+  overflow-x: hidden;
+}
+
+.projects-intro {
+  width: 100%;
+  max-width: var(--layout-max-width);
+  margin: 0 auto;
+  padding: clamp(3.5rem, 6vw, 6rem) var(--layout-gutter) clamp(2.5rem, 4vw, 4.5rem);
+  box-sizing: border-box;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.projects-intro__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1.5rem;
+}
+
+.projects-intro__badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-accent-earth);
+}
+
+.projects-intro__badge-text {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.projects-intro__header {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  align-items: end;
+}
+
+@media (min-width: 992px) {
+  .projects-intro__header {
+    grid-template-columns: 1.35fr 0.65fr;
+    gap: 4rem;
+  }
+}
+
+.projects-intro__heading {
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 5.5vw, 4.25rem);
+  font-weight: 400;
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.projects-intro__lead {
+  font-family: var(--font-sans);
+  font-size: var(--text-body-lg);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+/* -------------------------------------------------------------------------
+ * Immersive Project Panels Sequence
+ * ------------------------------------------------------------------------- */
+.projects-sequence {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-panel {
+  position: relative;
+  width: 100%;
+  padding: clamp(3.5rem, 6vw, 6rem) 0;
+  box-sizing: border-box;
+  border-bottom: 1px solid var(--color-border-subtle);
+  transition: background-color var(--duration-medium) ease;
+}
+
+.project-panel:last-child {
+  border-bottom: none;
+}
+
+.project-panel__container {
+  width: 100%;
+  max-width: var(--layout-max-width);
+  margin: 0 auto;
+  padding: 0 var(--layout-gutter);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Panel Header Info Strip */
+.project-panel__meta-strip {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.project-panel__meta-left {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.project-panel__number {
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: var(--tracking-widest);
+  color: var(--color-text-muted);
+}
+
+.project-panel__category {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--color-accent-earth);
+}
+
+.project-panel__scope {
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+}
+
+/* Panel Main Visual Display */
+.project-panel__visual-wrap {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border-subtle);
+  box-shadow: 0 20px 48px rgba(24, 25, 27, 0.06);
+}
+
+/* Landscape projects: cinematic wide viewport frame */
+.project-panel--landscape .project-panel__visual-wrap {
+  aspect-ratio: 16 / 9.5;
+  max-height: 80vh;
+}
+
+/* Portrait projects: balanced architectural frame */
+.project-panel--portrait .project-panel__visual-wrap {
+  aspect-ratio: 16 / 10.5;
+  max-height: 80vh;
+}
+
+.project-panel__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 750ms var(--ease-editorial);
+  will-change: transform;
+}
+
+.project-panel:hover .project-panel__image {
+  transform: scale(1.025);
+}
+
+.project-panel__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(24, 25, 27, 0) 60%,
+    rgba(24, 25, 27, 0.08) 100%
+  );
+  pointer-events: none;
+}
+
+/* Panel Bottom Narrative & Action */
+.project-panel__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding-top: 0.5rem;
+}
+
+.project-panel__title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.6rem, 2.8vw, 2.35rem);
+  font-weight: 400;
+  line-height: var(--leading-snug);
+  color: var(--color-text-primary);
+  margin: 0;
+  transition: transform 400ms var(--ease-editorial);
+}
+
+.project-panel:hover .project-panel__title {
+  transform: translateX(4px);
+}
+
+.project-panel__action {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--color-text-primary);
+  text-decoration: none;
+  padding: 0.6rem 1.25rem;
+  border: 1px solid var(--color-border-medium);
+  border-radius: var(--radius-xs);
+  background: transparent;
+  cursor: pointer;
+  transition: all var(--duration-fast) ease;
+}
+
+.project-panel__action:hover {
+  background-color: var(--color-text-primary);
+  color: var(--color-text-inverse);
+  border-color: var(--color-text-primary);
+}
+
+.project-panel__action-arrow {
+  transition: transform var(--duration-fast) ease;
+}
+
+.project-panel__action:hover .project-panel__action-arrow {
+  transform: translateX(3px);
+}
+
+/* -------------------------------------------------------------------------
+ * Outro / Consultation CTA
+ * ------------------------------------------------------------------------- */
+.projects-outro {
+  width: 100%;
+  background-color: var(--color-bg-surface);
+  border-top: 1px solid var(--color-border-subtle);
+  padding: clamp(4.5rem, 8vw, 7rem) 0;
+}
+
+.projects-outro__container {
+  width: 100%;
+  max-width: var(--layout-max-width);
+  margin: 0 auto;
+  padding: 0 var(--layout-gutter);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.5rem;
+}
+
+.projects-outro__badge {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--color-accent-earth);
+}
+
+.projects-outro__heading {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4.5vw, 3.25rem);
+  font-weight: 400;
+  line-height: var(--leading-tight);
+  color: var(--color-text-primary);
+  max-width: 700px;
+  margin: 0;
+}
+
+.projects-outro__text {
+  font-family: var(--font-sans);
+  font-size: var(--text-body-lg);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-secondary);
+  max-width: 580px;
+  margin: 0;
+}
+
+.projects-outro__actions {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+/* -------------------------------------------------------------------------
+ * Modal / Lightbox for Project View
+ * ------------------------------------------------------------------------- */
+.project-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background-color: rgba(24, 25, 27, 0.88);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(1rem, 3vw, 2.5rem);
+  box-sizing: border-box;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--duration-medium) ease;
+}
+
+.project-modal[data-open="true"] {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.project-modal__content {
+  position: relative;
+  max-width: 1200px;
+  width: 100%;
+  max-height: 90vh;
+  background-color: var(--color-bg-base);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+  display: flex;
+  flex-direction: column;
+}
+
+.project-modal__close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 10;
+  background: rgba(24, 25, 27, 0.7);
+  color: #ffffff;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: background var(--duration-fast) ease;
+}
+
+.project-modal__close-btn:hover {
+  background: var(--color-text-primary);
+}
+
+.project-modal__img-wrap {
+  width: 100%;
+  height: 65vh;
+  overflow: hidden;
+  background-color: var(--color-bg-surface);
+}
+
+.project-modal__img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.project-modal__info {
+  padding: 1.5rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid var(--color-border-subtle);
+  background-color: var(--color-bg-base);
+}
+
+.project-modal__title {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin: 0 0 0.25rem;
+}
+
+.project-modal__desc {
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+/* -------------------------------------------------------------------------
+ * Responsive Breakpoints
+ * ------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .project-panel {
+    padding: 2.75rem 0;
+  }
+
+  .project-panel__meta-strip {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .project-panel--landscape .project-panel__visual-wrap,
+  .project-panel--portrait .project-panel__visual-wrap {
+    aspect-ratio: 16 / 12;
+    max-height: 60vh;
+  }
+
+  .project-panel__footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .project-panel__action {
+    width: 100%;
+    justify-content: center;
+    min-height: 44px;
+    box-sizing: border-box;
+  }
+
+  .project-modal__info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .projects-page {
+    padding-top: 4rem;
+  }
+
+  .projects-intro {
+    padding: 2rem var(--layout-gutter) 1.75rem;
+  }
+
+  .projects-intro__heading {
+    font-size: clamp(2rem, 8.5vw, 2.5rem);
+    word-break: break-word;
+  }
+
+  .project-panel {
+    padding: 2.25rem 0;
+  }
+
+  .project-panel__title {
+    font-size: clamp(1.6rem, 7vw, 1.95rem);
+    word-break: break-word;
+  }
+}
+

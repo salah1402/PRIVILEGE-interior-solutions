@@ -1,0 +1,343 @@
+/**
+ * Privilege Interior Solutions - Section 03: With Whom We've Worked
+ * Editorial Credibility Section
+ * Aesthetic: Quiet, architectural, museum-grade, restrained credibility pause.
+ */
+
+.credibility-section {
+  position: relative;
+  width: 100%;
+  background-color: var(--color-bg-base, #f9f8f5);
+  border-top: 1px solid var(--color-border-subtle, rgba(24, 25, 27, 0.08));
+  padding: clamp(4.5rem, 7vw, 6.5rem) 0 clamp(4.5rem, 7vw, 6.5rem);
+  color: var(--color-text-primary, #18191b);
+  overflow: hidden;
+  scroll-margin-top: 84px;
+}
+
+.credibility-container {
+  width: 100%;
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 0 clamp(1.25rem, 4vw, 3.5rem);
+  box-sizing: border-box;
+}
+
+/* -----------------------------------------------------------------------------
+ * Editorial Framing Header
+ * ----------------------------------------------------------------------------- */
+.credibility-header {
+  margin-bottom: clamp(2.5rem, 4.5vw, 3.75rem);
+}
+
+.credibility-rubric {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  font-family: var(--font-sans, 'Plus Jakarta Sans', sans-serif);
+  font-size: var(--text-meta, 0.75rem);
+  font-weight: 600;
+  letter-spacing: var(--tracking-widest, 0.14em);
+  text-transform: uppercase;
+  color: var(--color-accent-earth, #b28859);
+  margin-bottom: 0.875rem;
+}
+
+.credibility-rubric-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-accent-earth, #b28859);
+  flex-shrink: 0;
+}
+
+.credibility-headline {
+  font-family: var(--font-serif, 'Cormorant Garamond', Georgia, serif);
+  font-size: clamp(2.65rem, 4.9vw, 3.95rem);
+  font-weight: 400;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  color: var(--color-text-primary, #18191b);
+  margin: 0;
+  max-width: 860px;
+}
+
+/* -----------------------------------------------------------------------------
+ * Asymmetric Editorial Logo Field
+ * ----------------------------------------------------------------------------- */
+.credibility-field {
+  display: flex;
+  flex-direction: column;
+  gap: 1.125rem;
+  width: 100%;
+}
+
+.credibility-row {
+  display: flex;
+  gap: 1.125rem;
+  width: 100%;
+}
+
+/* Row 1: 3 tiles (37% - 27% - 36%) */
+.credibility-row--top .credibility-tile:nth-child(1) { flex: 3.7; }
+.credibility-row--top .credibility-tile:nth-child(2) { flex: 2.7; }
+.credibility-row--top .credibility-tile:nth-child(3) { flex: 3.6; }
+
+/* Row 2: 2 tiles with deliberate offset & wide right anchor */
+.credibility-row--middle {
+  padding-left: clamp(0rem, 3.5vw, 3rem);
+  box-sizing: border-box;
+}
+.credibility-row--middle .credibility-tile:nth-child(1) { flex: 4.2; }
+.credibility-row--middle .credibility-tile:nth-child(2) { flex: 5.8; }
+
+/* Row 3: 3 tiles (32% - 32% - 36%) */
+.credibility-row--bottom .credibility-tile:nth-child(1) { flex: 3.2; }
+.credibility-row--bottom .credibility-tile:nth-child(2) { flex: 3.2; }
+.credibility-row--bottom .credibility-tile:nth-child(3) { flex: 3.6; }
+
+/* -----------------------------------------------------------------------------
+ * Individual Architectural Tile
+ * ----------------------------------------------------------------------------- */
+.credibility-tile {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid rgba(24, 25, 27, 0.08);
+  border-radius: 4px;
+  min-height: 144px;
+  padding: 1.25rem 1.65rem 1.15rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: border-color 0.35s ease, background-color 0.35s ease;
+}
+
+.credibility-tile:hover {
+  border-color: rgba(24, 25, 27, 0.18);
+  background: #fdfdfc;
+}
+
+/* Subtle corner metadata */
+.credibility-tile-header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 0.25rem;
+}
+
+.credibility-tile-index {
+  font-family: var(--font-sans, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted, #8b8c94);
+  opacity: 0.75;
+}
+
+/* Logo Stage & Image Scaling — Prime Visual Focus */
+.credibility-tile-stage {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 0.5rem;
+  min-height: 62px;
+}
+
+.credibility-logo-img {
+  max-width: 100%;
+  height: auto;
+  max-height: 48px;
+  object-fit: contain;
+  filter: grayscale(100%) contrast(1.15) opacity(0.72);
+  transition: filter 0.35s ease, opacity 0.35s ease;
+  user-select: none;
+  pointer-events: none;
+}
+
+.credibility-tile:hover .credibility-logo-img {
+  filter: grayscale(100%) contrast(1.25) opacity(0.95);
+}
+
+/* Normalized optical volumes across brand marks */
+.credibility-logo--prestige {
+  max-height: 60px;
+  transform: scale(1.15);
+}
+
+.credibility-logo--sobha {
+  max-height: 32px;
+}
+
+.credibility-logo--mantri {
+  max-height: 50px;
+  transform: scale(1.15);
+}
+
+.credibility-logo--embassy {
+  max-height: 32px;
+  mix-blend-mode: multiply;
+}
+
+.credibility-logo--gm {
+  max-height: 40px;
+}
+
+.credibility-logo--hm {
+  max-height: 48px;
+  color: #18191b;
+}
+
+.credibility-logo--hiranandani {
+  max-height: 34px;
+  filter: invert(1) grayscale(100%) contrast(1.2) opacity(0.72);
+  mix-blend-mode: multiply;
+}
+
+.credibility-tile:hover .credibility-logo--hiranandani {
+  filter: invert(1) grayscale(100%) contrast(1.25) opacity(0.95);
+}
+
+.credibility-logo--dlf {
+  max-height: 30px;
+}
+
+/* Footer title in tile */
+.credibility-tile-footer {
+  margin-top: 0.35rem;
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-start;
+}
+
+.credibility-tile-name {
+  font-family: var(--font-sans, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--color-text-secondary, #57585e);
+  transition: color 0.35s ease;
+}
+
+.credibility-tile:hover .credibility-tile-name {
+  color: var(--color-text-primary, #18191b);
+}
+
+/* -----------------------------------------------------------------------------
+ * Bottom Refinement Rule
+ * ----------------------------------------------------------------------------- */
+.credibility-footer-line {
+  margin-top: clamp(2.25rem, 3.5vw, 3.25rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid var(--color-border-subtle, rgba(24, 25, 27, 0.08));
+  padding-top: 1.25rem;
+  font-family: var(--font-sans, 'Plus Jakarta Sans', sans-serif);
+  font-size: var(--text-meta, 0.75rem);
+  color: var(--color-text-muted, #8b8c94);
+  letter-spacing: 0.04em;
+}
+
+/* -----------------------------------------------------------------------------
+ * Responsive Breakpoints (Tablet & Mobile)
+ * ----------------------------------------------------------------------------- */
+@media (max-width: 960px) {
+  .credibility-field {
+    gap: 1rem;
+  }
+
+  .credibility-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .credibility-row--top .credibility-tile:nth-child(1),
+  .credibility-row--top .credibility-tile:nth-child(2),
+  .credibility-row--top .credibility-tile:nth-child(3),
+  .credibility-row--middle .credibility-tile:nth-child(1),
+  .credibility-row--middle .credibility-tile:nth-child(2),
+  .credibility-row--bottom .credibility-tile:nth-child(1),
+  .credibility-row--bottom .credibility-tile:nth-child(2),
+  .credibility-row--bottom .credibility-tile:nth-child(3) {
+    flex: initial;
+  }
+
+  .credibility-row--middle {
+    padding-left: 0;
+  }
+
+  .credibility-row--top .credibility-tile:nth-child(3),
+  .credibility-row--bottom .credibility-tile:nth-child(3) {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 640px) {
+  .credibility-section {
+    padding: 3.5rem 0 3rem;
+  }
+
+  .credibility-header {
+    margin-bottom: 1.5rem;
+  }
+
+  .credibility-headline {
+    font-size: clamp(1.95rem, 8vw, 2.35rem);
+    word-break: break-word;
+  }
+
+  .credibility-field {
+    gap: 0.625rem;
+  }
+
+  .credibility-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.625rem;
+  }
+
+  /* Asymmetric editorial rhythm on mobile */
+  .credibility-row--top .credibility-tile:nth-child(1) {
+    grid-column: span 2;
+  }
+
+  .credibility-row--top .credibility-tile:nth-child(2),
+  .credibility-row--top .credibility-tile:nth-child(3) {
+    grid-column: span 1;
+  }
+
+  .credibility-row--middle .credibility-tile:nth-child(1),
+  .credibility-row--middle .credibility-tile:nth-child(2) {
+    grid-column: span 1;
+  }
+
+  .credibility-row--bottom .credibility-tile:nth-child(1),
+  .credibility-row--bottom .credibility-tile:nth-child(2) {
+    grid-column: span 1;
+  }
+
+  .credibility-row--bottom .credibility-tile:nth-child(3) {
+    grid-column: span 2;
+  }
+
+  .credibility-tile {
+    min-height: 96px;
+    padding: 0.75rem 0.85rem 0.65rem;
+  }
+
+  .credibility-tile-stage {
+    min-height: 40px;
+    padding: 0.25rem 0;
+  }
+
+  .credibility-footer-line {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}
+
