@@ -133,15 +133,18 @@ export function createOurWorksSection(options: OurWorksOptions = {}): OurWorksHa
         <span class="our-works-layer__tag">${project.number} / ${project.category}</span>
       </div>
 
-      <div class="our-works-layer__edge our-works-layer__edge--${project.layout.titleEdge}">
-        <h3 class="our-works-layer__title">${project.descriptor}</h3>
-      </div>
+      <!-- Bottom Editorial Overlay (Desktop edge-anchored via display:contents, Mobile stacked vertically) -->
+      <div class="our-works-layer__bottom-overlay">
+        <div class="our-works-layer__edge our-works-layer__edge--title our-works-layer__edge--${project.layout.titleEdge}">
+          <h3 class="our-works-layer__title">${project.descriptor}</h3>
+        </div>
 
-      <div class="our-works-layer__edge our-works-layer__edge--${project.layout.actionEdge}">
-        <a href="${project.link}" class="our-works-layer__action" aria-label="Explore ${project.descriptor}">
-          <span class="our-works-layer__action-text">EXPLORE MORE</span>
-          <span class="our-works-layer__action-arrow" aria-hidden="true">&rarr;</span>
-        </a>
+        <div class="our-works-layer__edge our-works-layer__edge--action our-works-layer__edge--${project.layout.actionEdge}">
+          <a href="${project.link}" class="our-works-layer__action" aria-label="Explore ${project.descriptor}">
+            <span class="our-works-layer__action-text">EXPLORE MORE</span>
+            <span class="our-works-layer__action-arrow" aria-hidden="true">&rarr;</span>
+          </a>
+        </div>
       </div>
     </article>
   `).join('');
